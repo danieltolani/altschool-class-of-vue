@@ -1,20 +1,18 @@
-import { ref } from 'vue'
+import { ref } from "@vue/reactivity";
 
-const useColorPicker = () => {
-    const message = ref('Pick a color')
-    const colors = ['green', 'red', 'blue', 'purple']
-
-    const matchColor = (color) => {
-        const randomColor =
-            colors.value[Math.floor(Math.random() * colors.value.length)]
-
-        randomColor === color
-            ? (message = `You win... [answer: ${randomColor}]`)
-            : (message = `You lose... [answer: ${randomColor}]`)
+const colorPicker = ()=>{
+    const colors = ["green", "red", "blue", "purple"];
+    let message = ref("Select a color...");
+const matchColor = (value) => {
+    
+    const randomNumber = Math.floor(Math.random() * 3) + 1; 
+    if (colors[randomNumber] === value) {
+      return;
     }
 
+    message.value = `You lose [answer: ${colors[randomNumber]}]`;
+  };
 
-    return { message, colors, matchColor }
+  return { colors, message, matchColor,  };
 }
-
-export default useColorPicker
+  export default colorPicker
