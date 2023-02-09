@@ -1,7 +1,11 @@
 <template>
-  <h1>Color Picker Game</h1>
+  <main class="main-heading">
+    <h1 class="heading">Color Picker Game</h1>
 
-<div>{{ message }}</div>
+    <div class="message">{{ message }}</div>
+  </main>
+  <div></div>
+
 
 <button v-for="color in colors" :key="color" :class="color"  @click="matchColor(color)">
 {{ color }}
@@ -22,6 +26,26 @@ setup() {
 </script>
 
 <style>
+/* *{
+  text-align: center;
+  border: 2px solid red;
+} */
+
+main.main-heading{
+  margin-bottom: 2em;
+}
+
+.message{
+  font-size: 1.2rem;
+}
+h1.heading{
+  text-align: center;
+}
+/* 
+.message{
+  border: 2px solid red;
+} */
+
 button{
   color: white !important;
   border: none;
@@ -30,7 +54,13 @@ button{
   border-radius: 6px;
   font-size: 1rem;
   text-transform: capitalize;
+  cursor: pointer;
 
+
+}
+
+button:hover{
+  opacity: 0.8;
 }
 .red {
 background: red;
